@@ -1,0 +1,7 @@
+cdnkrimsonkitty
+e6xflds53ifrbx6eya8xyf3rg5fj4a
+twitchtoken
+twitterapikey
+twitterapisecret
+twitteraccesstoken
+twitteraccesssecret
