@@ -4,12 +4,20 @@ This was created to be run on a Stream Deck, by using the launch application fea
 Other ways of running the script have not been tested, but should be equally as viable, and we're interested to see what you come up with!
 
 # Setup
-This script will require an app from Twitch to access a Client-ID which you can make your own at
+This script was made using Python 3.8.2.  If you do not have Python it can be found at https://www.python.org/
+You'll also need to download Requests https://pypi.org/project/requests/ which can be installed through pip.  After you've installed Python, open command prompt and type 'pip install requests' to download.
+And Tweepy http://docs.tweepy.org/en/latest/install.html which can be installed through pip the same way by using 'pip install tweepy'
+The final part I used to make it into an executable file is PyInstaller https://pypi.org/project/PyInstaller/ by using 'pip install pyinstaller'
+
+After you've acquired all of these pieces you can create the executable file by going to the folder containing the script in command prompt and typing 'pyinstaller --onefile clipandtweet.py' 
+After a brief moment it will create several files and folders but you will find the finished exe file in the 'dist' folder which will be created where you ran the compiler.
+
+This script will require an app from Twitch to access a Client-ID (I've provided one) which you can make your own at
 https://dev.twitch.tv/console/apps
 and that you create an app on Twitter for access to the necessary keys to send messages
 https://developer.twitter.com/en/apps
 
-If you want to use the script as is you'll need to create a text file called "login_info.txt" as well as "tweet_messages.txt" with the following information.
+If you want to use the script as is you'll need to create a text file called "login_info.txt" as well as "tweet_messages.txt" with the following information.  Each number represents a new line created within the file itself which you can see on the examples.
 
 # login_info.txt
 1. Channel name (i.e. cdnkrimsonkitty)
