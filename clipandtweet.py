@@ -13,16 +13,14 @@ def random_line(tweet_text):
 
 #send requests.get
 def requests_get(get_params, get_variable):
-    requests_get_result = requests.get(new_twitch_api + get_params + get_variable,
-                 headers={'Client-ID': client_id, 'Authorization': 'Bearer ' + twitch_token})
+    requests_get_result = requests.get(new_twitch_api + get_params + get_variable, headers=headers)
     return requests_get_result
 
 
 
 #set requests.post
 def requests_post(post_params, post_variable):
-    requests_post_result = requests.post(new_twitch_api + post_params + post_variable,
-                 headers={'Client-ID': client_id, 'Authorization': 'Bearer ' + twitch_token})
+    requests_post_result = requests.post(new_twitch_api + post_params + post_variable, headers=headers)
     return requests_post_result
 
 
@@ -48,8 +46,21 @@ new_twitch_api = "https://api.twitch.tv/helix/"
 
 
 
-#request channel info to get user id
-user_id_data = requests_get('users?login=', user_login)
+#set headers
+headers = {
+    'Client-ID': client_id,
+    'Authorization': 'Bearer ' + twitch_token
+}
+
+
+
+#request channel info to get user id, display error if something goes wrong
+try:
+    user_id_data = requests_get('users?login=', user_login)
+except:
+    print("That didn't work.  Try updating the OAuth token.")
+    input("Press Enter to continue...")
+    exit()
 #set user id
 user_id_data = user_id_data.json()
 user_id = user_id_data['data'][0]['id']
