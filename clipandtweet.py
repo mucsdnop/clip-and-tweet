@@ -14,7 +14,7 @@ def random_line(tweet_text):
 #send requests.get
 def requests_get(get_params, get_variable):
     requests_get_result = requests.get(new_twitch_api + get_params + get_variable,
-                 headers={'Client-ID': client_id})
+                 headers={'Client-ID': client_id, 'Authorization': 'Bearer ' + twitch_token})
     return requests_get_result
 
 
@@ -22,7 +22,7 @@ def requests_get(get_params, get_variable):
 #set requests.post
 def requests_post(post_params, post_variable):
     requests_post_result = requests.post(new_twitch_api + post_params + post_variable,
-                 headers={'Authorization': 'Bearer ' + twitch_token})
+                 headers={'Client-ID': client_id, 'Authorization': 'Bearer ' + twitch_token})
     return requests_post_result
 
 
