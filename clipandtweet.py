@@ -18,7 +18,7 @@ def requests_get(get_params, get_variable):
 
 
 
-#set requests.post
+#send requests.post
 def requests_post(post_params, post_variable):
     requests_post_result = requests.post(new_twitch_api + post_params + post_variable, headers=headers)
     return requests_post_result
@@ -77,10 +77,10 @@ game_id = game_id_data['data'][0]['game_id']
 
 #request game information
 game_name_data = requests_get('games?id=', game_id)
-#set game name
+#set game name and remove spaces and colons for easier twitter hashtag use
 game_name_data = game_name_data.json()
 game_name = game_name_data['data'][0]['name']
-game_name = game_name.replace(' ','')
+game_name = game_name.replace(' ','').replace(':','')
 
 
 
